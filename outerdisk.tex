@@ -1,0 +1,374 @@
+% # To-dos
+% - See comments labeled "TODO" below
+% -
+
+\documentclass[modern]{aastex63}
+\usepackage[ruled,vlined,norelsize]{algorithm2e}
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{shadows}
+\definecolor{captiongray}{HTML}{555555}
+\mdfsetup{%
+  innertopmargin=2ex,
+  innerbottommargin=1.8ex,
+  linecolor=captiongray,
+  linewidth=0.5pt,
+  roundcorner=5pt,
+  shadow=false
+}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\input{preamble.tex}
+
+% text macros
+\newcommand{\methodname}{\textsl{Orbital Torus Imaging}}
+
+% Project-specific macros - all others go in preamble.tex
+\newcommand{\gaia}{\textsl{Gaia}}
+\newcommand{\dr}[1]{\acronym{DR}#1}
+\newcommand{\apogee}{\acronym{APOGEE}}
+\newcommand{\sdss}{\acronym{SDSS}}
+\newcommand{\sdssiv}{\acronym{SDSS-IV}}
+\newcommand{\sdssv}{\acronym{SDSS-V}}
+
+% trust in Hogg
+\setlength{\parindent}{1.1\baselineskip}
+\renewcommand{\twocolumngrid}{}
+\sloppy\sloppypar\raggedbottom\frenchspacing
+\renewcommand{\doi}[1]{{\footnotesize\href{https://doi.org/#1}{#1}}}
+
+\shorttitle{The Outer Galactic Disk with APOGEE}
+\shortauthors{Price-Whelan et al.}
+
+\begin{document}
+\graphicspath{ {figures/} }
+\DeclareGraphicsExtensions{.pdf}
+
+\title{\textbf{%
+    Charting the Contorted Outer Disk of the Milky Way with APOGEE}}
+
+\newcommand{\affcca}{Center for Computational Astrophysics, Flatiron Institute, 162 Fifth Ave, New York, NY 10010, USA}
+% \newcommand{\affccpp}{Center for Cosmology and Particle Physics, Department of Physics, New York University, 726 Broadway, New York, NY 10003, USA}
+% \newcommand{\affmpia}{Max-Planck-Institut f\"ur Astronomie, K\"onigstuhl 17, D-69117 Heidelberg, Germany}
+% \newcommand{\affcolumbia}{Department of Astronomy, Columbia University, New York, NY 10027, USA}
+% \newcommand{\affutah}{Department of Physics and Astronomy, University of Utah, 115 S. 1400 E., Salt Lake City, UT 84112, USA}
+% \newcommand{\affuw}{Department of Astronomy, University of Washington, Box 351580, Seattle, WA 98195, USA}
+% \newcommand{\affprinceton}{Department of Astrophysical Sciences, Princeton University, 4 Ivy Lane, Princeton, NJ~08544}
+% \newcommand{\affcarnegie}{The Observatories of the Carnegie Institution for Science, 813 Santa Barbara St., Pasadena, CA~91101}
+
+\author[0000-0003-0872-7098]{Adrian~M.~Price-Whelan}
+\affiliation{\affcca}
+
+% \author[0000-0003-2866-9403]{David~W.~Hogg}
+% \affiliation{\affcca}
+% \affiliation{\affmpia}
+% \affiliation{\affccpp}
+
+% \author[0000-0001-6244-6727]{Kathryn~V.~Johnston}
+% \affiliation{\affcca}
+% \affiliation{\affcolumbia}
+
+% \author[0000-0001-5082-6693]{Melissa~K.~Ness}
+% \affiliation{\affcolumbia}
+% % \affiliation{\affcca}
+
+% \author[0000-0003-4996-9069]{Hans-Walter~Rix}
+% \affiliation{\affmpia}
+
+% % APOGEE authors:
+
+% \author[0000-0002-1691-8217]{Rachael L. Beaton}
+% \altaffiliation{Carnegie-Princeton Fellow}
+% \affiliation{\affprinceton}
+% \affiliation{\affcarnegie}
+
+% \author[0000-0002-8725-1069]{Joel~R.~Brownstein}
+% \affiliation{\affutah}
+
+% \author[0000-0002-1693-2721]{Domingo~An\'ibal~Garc\'ia-Hern\'andez}
+% \affiliation{Instituto de Astrof\'isica de Canarias, 38205 La Laguna, Tenerife, Spain}
+
+% \author[0000-0001-5388-0994]{Sten Hasselquist}
+% \altaffiliation{NSF Astronomy and Astrophysics Postdoctoral Fellow}
+% \affiliation{\affutah}
+
+% \author[0000-0003-2969-2445]{Christian~R.~Hayes}
+% \affiliation{\affuw}
+
+% \author{Richard~R.~Lane}
+% \affiliation{Instituto de Astronom\'ia y Ciencias Planetarias de Atacama, Universidad de Atacama, Copayapu 485, Copiap\'o, Chile}
+
+% \author[0000-0001-6761-9359]{Gail~Zasowski}
+% \affiliation{\affutah}
+
+
+\begin{abstract}\noindent
+  The outer disk of the Milky Way is significantly distorted.
+  The observed flaring of the outer disk, spatially-coherent substructures
+  (e.g., the anticenter stream), and recently-observed vertical distortions in
+  the positions and velocities of stars in this region all suggest that the
+  outer disk has been significantly perturbed from ongoing and past accretion of
+  satellite galaxies.
+  Here, we map the chemical and kinematic structure of the outer disk using
+  element abundances and spectrophotometric distances for red giant stars
+  observed by the APOGEE surveys.
+  We show that the element abundance distributions of stars in the disk vary
+  smoothly as a function of mono-kinematic selections of stars (using actions)
+  that extend to radii $R>20~\kpc$.
+  We compare observed variations in the bulk vertical motions of stars and the
+  (vertical) action distribution of stars with a high-resolution simulation of a
+  Milky Way-like disk with a perturbing satellite on a Sagittarius-like orbit.
+  We find that the observed vertical distortions and flaring of the outer disk
+  can be qualitatively reproduced with this simulation, whereas these features
+  cannot be explained by secular evolution of the disk (i.e. radial migration).
+  The outer Milky Way disk provides a kinematic fossil record of perturbations
+  whose kinematics will enable unique measurements of the dark matter content at
+  this radii, and whose chemo-dynamical structures will enable further
+  uncovering the accretion history and formation of the Galaxy.
+\end{abstract}
+
+\keywords{\raggedright % now from the UAT, not the AAS keyword system
+  chemical~abundances % UGH ELEMENTS
+  ---
+  galaxy~dynamics
+  ---
+  Milky~Way~dynamics
+  ---
+  radial~velocity
+  ---
+  spectroscopy
+  ---
+  stellar~kinematics
+  ---
+  surveys
+}
+
+% \section*{}\clearpage
+\section{Introduction}
+\label{sec:intro}
+
+Sup.
+
+
+\section{Data}
+\label{sec:data}
+
+% In our toy demonstrations below, our main data source is a cross-match between
+% spectroscopic data from the \apogee\ surveys \citep{Majewski:2017} and
+% astrometric data from the \gaia\ mission \citep{Gaia-Collaboration:2016,
+% Gaia-Collaboration:2018}.
+
+% \apogee\ is a spectroscopic sub-survey and component of the Sloan Digital Sky
+% Survey IV (\sdssiv; \citealt{Eisenstein:2011, Blanton:2017}) whose main goal is
+% to map the chemical and dynamical properties of stars across the Milky Way disk.
+% The survey uses two nearly identical, high-resolution ($R \sim 22,500$;
+% \citealt{Wilson:2019}), infrared ($H$-band) spectrographs---one in the Northern
+% hemisphere at Apache Point Observatory (APO) using the SDSS 2.5m telescope
+% \citep{Gunn:2006}, and one in the Southern hemisphere at Las Campanas
+% Observatory (LCO) using the 2.5m du Pont telescope \citep{Bowen:1973}.
+% The primary survey targets are selected with simple color and magnitude cuts
+% (\citealt{Zasowski:2013, Zasowski:2017}, Santana et al. in prep., Beaton et al.
+% in prep.), but the sparse angular sky coverage and limited number of fibers per
+% field lead to a ``pencil-beam''-like sampling of the Milky Way stellar density.
+% \apogee\ spectra are reduced \citep{Nidever:2015} and then analyzed (i.e., to
+% measure stellar parameters and abundances) using the \apogee\ Stellar Parameters
+% and Chemical Abundance Pipeline (\acronym{ASPCAP}; \citealt{ASPCAP,
+% Holtzman:2018, Jonsson:2020}); here we use abundance measurements from the
+% standard \apogee\ pipeline.
+
+% Here we use a recent internal data product (which includes all data taken
+% through March 2020) from the \apogee\ surveys (post-\dr{16}) that includes
+% $\approx60\%$ more stars than the publicly-available \dr{16} catalogs
+% \citep{DR16, Jonsson:2020}, but was reduced and processed using the same
+% pipeline used to produce the \dr{16} release \citep[i.e., the pipeline described
+% in][]{Jonsson:2020}.
+% This \apogee\ catalog contains calibrated element abundance measurements for 18
+% elements, but these have a variety of physical origins and a range of
+% reliabilities and measurement precisions.
+% For demonstrations below, we therefore focus on a subset of eight, well-measured
+% (log) abundance ratios selected to have varied astrophysical origins:
+% \abunratio{Fe}{H}, \abunratio{C}{Fe}, \abunratio{N}{Fe}, \abunratio{O}{Fe},
+% \abunratio{Mg}{Fe}, \abunratio{Si}{Fe}, \abunratio{Mn}{Fe}, \abunratio{Ni}{Fe}.
+% In some cases, we focus on just a single element abundance, \abunratio{Mg}{Fe},
+% which is one of the most precisely and accurately determined element abundance
+% measured with the \dr{16} pipeline \citep{Jonsson:2020}.
+
+% \gaia\ is primarily an astrometric mission and survey
+% \citep{Gaia-Collaboration:2016} that obtains sky position, proper motion, and
+% parallax measurements for $>1$ billion stars, limited only by their apparent
+% magnitudes (\gaia\ $G \lesssim 20.7$).
+% Here we use parallax and proper motion measurements released in \gaia\ \dr{2}
+% \citep{Gaia-Collaboration:2018, Gaia-astrometric:2018}.
+
+Yo.
+
+% \begin{figure}[!tp]
+%   \begin{mdframed}
+%   \color{captiongray}
+%   \begin{center}
+%   \includegraphics[width=\textwidth]{apogee-rgb-loalpha-mh-am-xy.pdf}
+%   \end{center}
+%   \caption{%
+%     TODO
+%     \label{fig:mh-am-xy}}
+%   \end{mdframed}
+% \end{figure}
+
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Computing Actions}
+\label{sec:est-actions}
+
+
+
+\section{A Tour of the Outer Disk}
+\label{sec:tour}
+
+\subsection{Position-based Selections}
+\label{sec:sel-positions}
+
+\subsection{Action-based Selections}
+\label{sec:sel-actions}
+
+
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Revisiting Known Substructures}
+\label{sec:triandplus}
+
+Figure: some plot of Vphi, VR, Vz vs. Rg or R, show all stars + these stars
+
+TriAnd, A13, GASS/Monoceros. Chemically consistent with low-alpha disk. Kinematics consistent with what the disk is doing out there, albeit f'ed!
+
+ACS??
+
+\subsection{Bulk Motion}
+\label{sec:bulkmotion}
+
+Bulk vertical and radial motion as a funtion of R or Rg. Same as what Antoja sees.
+
+\subsection{Radial Migration?}
+\label{sec:radialmigration}
+
+Look at Jz distribution, check against radial migration models? But need to factor in selection function.
+
+
+
+\section{Comparison to Simulations}
+\label{sec:sims}
+
+\subsection{Sagittarius + Milky Way}
+\label{sec:sag-only}
+
+\subsection{Milky Way + Secular Effects}
+\label{sec:mw-secular}
+
+Sellwood sim?? Or qualitative comparison to expectations extracted from those simulations?
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+
+
+\acknowledgments
+It is a pleasure to thank
+  ...people.
+
+Funding for the Sloan Digital Sky
+Survey IV has been provided by the
+Alfred P. Sloan Foundation, the U.S.
+Department of Energy Office of
+Science, and the Participating
+Institutions.
+
+SDSS-IV acknowledges support and
+resources from the Center for High
+Performance Computing  at the
+University of Utah. The SDSS
+website is www.sdss.org.
+
+SDSS-IV is managed by the
+Astrophysical Research Consortium
+for the Participating Institutions
+of the SDSS Collaboration including
+the Brazilian Participation Group,
+the Carnegie Institution for Science,
+Carnegie Mellon University, Center for
+Astrophysics | Harvard \&
+Smithsonian, the Chilean Participation
+Group, the French Participation Group,
+Instituto de Astrof\'isica de
+Canarias, The Johns Hopkins
+University, Kavli Institute for the
+Physics and Mathematics of the
+Universe (IPMU) / University of
+Tokyo, the Korean Participation Group,
+Lawrence Berkeley National Laboratory,
+Leibniz Institut f\"ur Astrophysik
+Potsdam (AIP),  Max-Planck-Institut
+f\"ur Astronomie (MPIA Heidelberg),
+Max-Planck-Institut f\"ur
+Astrophysik (MPA Garching),
+Max-Planck-Institut f\"ur
+Extraterrestrische Physik (MPE),
+National Astronomical Observatories of
+China, New Mexico State University,
+New York University, University of
+Notre Dame, Observat\'ario
+Nacional / MCTI, The Ohio State
+University, Pennsylvania State
+University, Shanghai
+Astronomical Observatory, United
+Kingdom Participation Group,
+Universidad Nacional Aut\'onoma
+de M\'exico, University of Arizona,
+University of Colorado Boulder,
+University of Oxford, University of
+Portsmouth, University of Utah,
+University of Virginia, University
+of Washington, University of
+Wisconsin, Vanderbilt University,
+and Yale University.
+
+This work has made use of data from the European Space Agency (\acronym{ESA})
+mission \gaia\ (\url{https://www.cosmos.esa.int/gaia}), processed by the \gaia\
+Data Processing and Analysis Consortium (\acronym{DPAC},
+\url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the
+\acronym{DPAC}
+has been provided by national institutions, in particular the institutions
+participating in the \gaia\ Multilateral Agreement.
+
+% \facilities{
+% \sdss-iv,
+% \apogee,
+% \gaia
+% }
+
+\software{
+  \package{Astropy} \citep{astropy, astropy:2018},
+  \package{gala} \citep{gala},
+  \package{IPython} \citep{ipython},
+  \package{matplotlib} \citep{Hunter:2007},
+  \package{numpy} \citep{numpy:2020},
+  \package{schwimmbad} \citep{schwimmbad},
+  \package{scipy} \citep{Virtanen:2020}.
+}
+
+% \appendix
+
+% \section{Re-weighting the $K$ nearest neighbors to account for steep gradients}
+% \label{app:knn-weights}
+
+
+\bibliographystyle{aasjournal}
+\bibliography{outerdisk}
+
+\end{document}
